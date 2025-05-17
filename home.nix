@@ -29,6 +29,11 @@
     homeDirectory = "/home/richard";
     stateVersion = "23.11";
 
+	keyboard = {
+      layout = "us";
+      variant = "colemak";
+	};
+
     packages = with pkgs; [
       keepassxc
       neofetch

@@ -28,7 +28,16 @@
         inherit system;
         specialArgs = inputs;
         modules = [
+		  ./hardware-configuration.nix
           ./configuration.nix
+
+          ./modules/system/bluetooth.nix
+          ./modules/system/bootloader.nix
+          ./modules/system/filesystem.nix
+          ./modules/system/display.nix
+          ./modules/system/audio.nix
+          ./modules/system/networking.nix
+          ./modules/system/users.nix
 
           # lanzaboote.nixosModules.lanzaboote
           # ({ pkgs, lib, ... }: {
