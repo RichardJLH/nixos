@@ -43,7 +43,9 @@
 	  gparted
 	  unzip
 	  cacert
-	  jetbrains.idea-community-bin
+      jetbrains.idea-community-bin
+      (pkgs.nerd-fonts.jetbrains-mono)
+
 
       # unfree packages
       spotify
@@ -52,14 +54,7 @@
     ];
   };
 
-  fonts = {
-    fontconfig.enable = true; # enables font config support
-
-    # This ensures fonts are properly configured for your user
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    ];
-  };
+  fonts.fontconfig.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
