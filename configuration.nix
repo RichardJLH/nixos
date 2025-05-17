@@ -14,24 +14,28 @@ in
 
   fileSystems."/" = {
     inherit device fsType;
-    options = [ "subvol=@" ];
+    options = [ "subvol=@" "compress=zstd" "noatime" "space_cache=v2" "ssd" ];
   };
 
   fileSystems."/home" = {
     inherit device fsType;
-    options = [ "subvol=@home" ];
+    options = [ "subvol=@home" "compress=zstd" "noatime" "space_cache=v2" "ssd" ];
   };
 
   fileSystems."/nix" = {
     inherit device fsType;
-    options = [ "subvol=@nix" ];
+    options = [ "subvol=@nix" "compress=zstd" "noatime" "space_cache=v2" "ssd" ];
   };
 
   fileSystems."/var/log" = {
     inherit device fsType;
-    options = [ "subvol=@var_log" ];
+    options = [ "subvol=@var_log" "noatime" "space_cache=v2" "ssd" ];
   };
 
+  fileSystems."/.snapshots" = {
+    inherit device fsType;
+    options = [ "subvol=@snapshots" "noatime" "space_cache=v2" "ssd" ];
+  };
 
 
   # Bootloader.
