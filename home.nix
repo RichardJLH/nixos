@@ -59,6 +59,7 @@
     ./programs/lazygit.nix
     ./programs/direnv.nix
 	./programs/fzf.nix
+	./programs/nh.nix
     # ./programs/ags/mod.nix
   ];
 
