@@ -4,9 +4,35 @@
 
 { config, pkgs, inputs, ... }:
 
+let
+    device = "/dev/disk/by-uuid/edd92a3a-984c-4364-8684-69dfb6edd936";
+    fsType = "btrfs";
+in
 {
   imports = [ ./hardware-configuration.nix ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  fileSystems."/" = {
+    inherit device fsType;
+    options = [ "subvol=@" ];
+  };
+
+  fileSystems."/home" = {
+    inherit device fsType;
+    options = [ "subvol=@home" ];
+  };
+
+  fileSystems."/nix" = {
+    inherit device fsType;
+    options = [ "subvol=@nix" ];
+  };
+
+  fileSystems."/var/log" = {
+    inherit device fsType;
+    options = [ "subvol=@var_log" ];
+  };
+
+
 
   # Bootloader.
   boot = {
@@ -86,8 +112,8 @@
 
   # networking
   networking = {
-	  hostName = "richard-laptop-nixos";
-	  networkmanager.enable = true;
+      hostName = "richard-laptop-nixos";
+      networkmanager.enable = true;
   };
 
   # Set your time zone.
