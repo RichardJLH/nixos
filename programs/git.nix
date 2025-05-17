@@ -3,6 +3,10 @@
 {
   programs.git = {
     enable = true;
+
+	userName = "RichardJLH";
+	userEmail = "richard.jl.hildebrandt@gmail.com";
+
     extraConfig = {
       commit.gpgsign = true;
       safe.directory = "*";
