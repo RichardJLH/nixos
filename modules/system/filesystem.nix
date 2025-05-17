@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
     device = "/dev/disk/by-uuid/edd92a3a-984c-4364-8684-69dfb6edd936";
     fsType = "btrfs";
@@ -39,4 +40,5 @@ in
     options = "credentials=/home/richard/nixos/leannas.credentials,rw,uid=1000,gid=1000";
     wantedBy = [ "multi-user.target" ];
   }];
+  environment.systemPackages = [ pkgs.cifs-utils ];
 }
