@@ -84,10 +84,11 @@
     };
   };
 
-  networking.hostName = "richard-laptop-nixos";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # networking
+  networking = {
+	  hostName = "richard-laptop-nixos";
+	  networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
