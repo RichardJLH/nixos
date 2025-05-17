@@ -47,41 +47,11 @@
 
   # Select internationalisation properties.
   console.useXkbConfig = true;
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    # extraLocaleSettings = {
-    #   LC_ADDRESS = "de_DE.UTF-8";
-    #   LC_IDENTIFICATION = "de_DE.UTF-8";
-    #   LC_MEASUREMENT = "de_DE.UTF-8";
-    #   LC_MONETARY = "de_DE.UTF-8";
-    #   LC_NAME = "de_DE.UTF-8";
-    #   LC_NUMERIC = "de_DE.UTF-8";
-    #   LC_PAPER = "de_DE.UTF-8";
-    #   LC_TELEPHONE = "de_DE.UTF-8";
-    #   LC_TIME = "de_DE.UTF-8";
-    # };
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
   programs.git.enable = true;
-  programs.nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep-since 4d --keep 3";
-    };
-    flake = "${config.users.users.richard.home}/nixos";
-  };
   programs.steam.enable = true;
 
   services.printing.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
-    pulse.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;

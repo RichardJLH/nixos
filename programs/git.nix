@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs.git = {
     enable = true;
@@ -23,4 +21,5 @@
       ac = "!git add -A && git commit -m";
     };
   };
+  programs.nushell.shellAliases.g = "git";
 }

@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   services.gammastep = {
     enable = true;

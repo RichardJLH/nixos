@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs.nushell = {
     enable = true;
@@ -7,12 +5,7 @@
     envFile.source = ./configuration/env.nu;
     shellAliases = {
       a = "doas";
-      b = "bat";
       c = "clear";
-      e = "nvim";
-      g = "git";
-      l = "lsd -l";
-      s = "lsd -la";
     };
   };
 }

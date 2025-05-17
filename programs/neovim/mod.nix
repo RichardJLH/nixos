@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   programs.neovim = {
@@ -27,4 +27,6 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
   };
+
+  programs.nushell.shellAliases.e = "nvim";
 }
