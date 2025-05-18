@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -7,6 +7,16 @@
   nixpkgs.config.allowUnfree = true;
 
   hardware.cpu.amd.updateMicrocode = true;
+  security.polkit.enable = true;
+  time.timeZone = "Europe/Berlin";
+
+  console.useXkbConfig = true;
+
+  programs.git.enable = true;
+  programs.steam.enable = true;
+
+  services.printing.enable = true;  # cups
+  services.fprintd.enable = true;  # fingerprint
   services.locate = {
     enable = true;
     package = pkgs.plocate;
@@ -19,7 +29,7 @@
       users = [ "1000" ];
     };
   };
-  security.polkit.enable = true;
+
 
   security = {
     sudo.enable = false;
@@ -32,18 +42,6 @@
       }];
     };
   };
-
-  time.timeZone = "Europe/Berlin";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  console.useXkbConfig = true;
-  programs.git.enable = true;
-  programs.steam.enable = true;
-
-  services.printing.enable = true;  # cups
-  services.fprintd.enable = true;  # fingerprint
-
   environment.systemPackages = [ pkgs.doas-sudo-shim ];
 
   system.stateVersion = "23.11";
