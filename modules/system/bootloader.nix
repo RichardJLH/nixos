@@ -1,13 +1,23 @@
+{ pkgs, lib, ... }:
+let
+  dracula-grub-theme = pkgs.fetchFromGitHub {
+    owner = "dracula";
+    repo = "grub";
+    rev = "0e721d99dbf0d5d6c4fd489b88248365b7a60d12";
+    sha256 = "sha256-SBAXGJbNYdr89FSlqzgkiW/c23yTHYvNxxU8F1hMfXI=";
+  };
+in
 {
   # Bootloader.
   boot = {
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        # assuming /boot is the mount point of the  EFI partition in NixOS (as the installation section recommends).
         efiSysMountPoint = "/boot";
       };
       grub = {
+        enable = true;
+
         # despite what the configuration.nix manpage seems to indicate,
         # as of release 17.09, setting device to "nodev" will still call
         # `grub-install` if efiSupport is true
@@ -15,18 +25,8 @@
         # but must be set to some value in order to pass an assert in grub.nix)
         devices = [ "nodev" ];
         efiSupport = true;
-        enable = true;
-        # set $FS_UUID to the UUID of the EFI partition
-        extraEntries = ''
-          menuentry "Windows" {
-            insmod part_gpt
-              insmod fat
-              insmod search_fs_uuid
-              insmod chain
-              search --fs-uuid --set=root $FS_UUID
-              chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-          }
-        '';
+        useOSProber = true;
+		theme = "${dracula-grub-theme}/dracula";
       };
     };
   };
