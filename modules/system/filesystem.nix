@@ -37,7 +37,7 @@ in
     what = "//10.1.0.11/Transfer";
     where = "/home/richard/leannas";
     type = "cifs";
-    options = "credentials=/home/richard/nixos/leannas.credentials,rw,uid=1000,gid=1000";
+    options = "credentials=/home/richard/nixos/secrets/leannas.credentials,rw,uid=1000,gid=1000";
     wantedBy = [ "multi-user.target" ];
   }];
   environment.systemPackages = [ pkgs.cifs-utils ];
