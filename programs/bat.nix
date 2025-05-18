@@ -1,4 +1,7 @@
 {
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    config.theme = "Dracula";
+  };
   programs.nushell.shellAliases.b = "bat";
 }
