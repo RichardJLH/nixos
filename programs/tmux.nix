@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -8,5 +9,18 @@
     escapeTime = 0;
     terminal = "screen-256color";
 	extraConfig = "set-option -sa terminal-features ',xterm-kitty:RGB'";
+
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      yank
+      {
+        plugin = dracula;
+        extraConfig = ''
+          set -g @dracula-show-battery false
+          set -g @dracula-show-powerline true
+          set -g @dracula-refresh-rate 10
+          '';
+      }
+    ];
   };
 }
