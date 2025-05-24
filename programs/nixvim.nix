@@ -155,7 +155,7 @@
       servers = {
         nil_ls.enable = true;
         jdtls.enable = true;
-        rust_analyzer.enable = true;
+        # rust_analyzer.enable = true;
       };
     };
 
