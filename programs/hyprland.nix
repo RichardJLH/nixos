@@ -13,13 +13,6 @@
 
       exec-once = "eww open bar & firefox";
 
-      env = [
-        "SWWW_TRANSITION_FPS,120"
-        "GDK_DPI_SCALE,0.5"
-        "XCURSOR_SIZE,64"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
-      ];
-
       input = {
         kb_layout = "us";
         kb_variant = "colemak";
