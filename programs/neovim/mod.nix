@@ -2,7 +2,7 @@
 
 {
   programs.neovim = {
-    enable = true;
+    enable = false;
     defaultEditor = true;
 
     extraLuaPackages = luaPkgs: with luaPkgs; [ jsregexp ];
@@ -17,7 +17,7 @@
   };
 
   xdg.configFile = {
-    "nvim" = {
+    "neovim-old" = {
       source = ./configuration;
       recursive = true;
     };

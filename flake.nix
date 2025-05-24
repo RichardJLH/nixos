@@ -11,6 +11,14 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+# If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+# url = "github:nix-community/nixvim/nixos-24.11";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     # lanzaboote = {
     #   url = "github:nix-community/lanzaboote/v0.3.0";
@@ -18,7 +26,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, firefox-addons } @ inputs:
+  outputs = { self, nixpkgs, home-manager, firefox-addons, nixvim } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};

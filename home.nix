@@ -60,6 +60,7 @@
     ./programs/direnv.nix
 	./programs/fzf.nix
 	./programs/nh.nix
+	./programs/nixvim.nix
     # ./programs/ags/mod.nix
   ];
 
