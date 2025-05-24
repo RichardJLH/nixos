@@ -13,7 +13,6 @@
 	};
 
     packages = with pkgs; [
-      keepassxc
       neofetch
       brightnessctl
       pavucontrol
@@ -73,6 +72,8 @@
 	./programs/fzf.nix
 	./programs/nh.nix
 	./programs/nixvim.nix
+	./programs/keepassxc.nix
+	./programs/qutebrowser.nix
     # ./programs/ags/mod.nix
   ];
 
