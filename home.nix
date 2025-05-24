@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -27,7 +27,19 @@
 	  unzip
 	  cacert
       jetbrains.idea-community-bin
-      (pkgs.nerd-fonts.jetbrains-mono)
+      nerd-fonts.jetbrains-mono
+
+      (pkgs.stdenvNoCC.mkDerivation {
+         name = "font-awesome-pro";
+         src = builtins.path {
+           path = ./assets/font-awesome;
+           name = "font-awesome-src";
+         };
+         installPhase = ''
+         mkdir -p $out/share/fonts/opentype
+         cp *.otf $out/share/fonts/opentype/
+         '';
+       })
 
 
       # unfree packages
