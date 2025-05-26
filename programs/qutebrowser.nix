@@ -95,9 +95,13 @@ in
         "Y" = "prompt-accept --save yes";
         "N" = "prompt-accept --save no";
 	  };
+	  prompt = {
+        "<Escape>" = "mode-leave";
+	  };
     };
     searchEngines = {
       g = "https://www.google.com/search?hl=en&q={}";
+      y = "https://www.youtube.com/results?search_query={}";
       DEFAULT = "https://www.google.com/search?hl=en&q={}";
     };
     settings = {
