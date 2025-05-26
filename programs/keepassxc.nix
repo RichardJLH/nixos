@@ -1,3 +1,9 @@
 {
-  programs.keepassxc.enable = true;
+  programs.keepassxc = {
+    enable = true;
+
+    settings = {
+      Browser.Enabled = true;
+    };
+  };
 }
