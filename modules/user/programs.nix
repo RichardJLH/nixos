@@ -26,6 +26,11 @@
     mpv.enable = true;
     starship.enable = true;
     foot.enable = true;
+    tofi.enable = true;
+    tofi.settings = {
+      width = "50%";
+      height = "50%";
+    };
   };
   services.clipman.enable = true;
 }

@@ -77,8 +77,8 @@
       ];
       bind = [
         # apps
-        "$mainMod, P, exec, rofi -show drun"
-        "$mainMod CONTROL, Return, exec, kitty"
+		"$mainMod, P, exec, tofi-drun | xargs hyprctl dispatch exec --"
+        "$mainMod CONTROL, Return, exec, foot"
         "$mainMod CONTROL, F, exec, firefox"
         "$mainMod CONTROL, M, exec, dolphin"
 
@@ -136,6 +136,5 @@
 
   home.packages = with pkgs; [
     hyprcursor
-    rofi-wayland
   ];
 }
