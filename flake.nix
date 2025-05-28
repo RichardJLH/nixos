@@ -19,6 +19,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
 
     # lanzaboote = {
     #   url = "github:nix-community/lanzaboote/v0.3.0";
@@ -26,7 +32,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, firefox-addons, nixvim } @ inputs:
+  outputs = { self, nixpkgs, home-manager, firefox-addons, nixvim, stylix } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -46,6 +52,10 @@
           ./modules/system/audio.nix
           ./modules/system/networking.nix
           ./modules/system/users.nix
+          ./modules/system/stylix.nix
+
+          stylix.nixosModules.stylix
+
 
           # lanzaboote.nixosModules.lanzaboote
           # ({ pkgs, lib, ... }: {
@@ -68,10 +78,10 @@
       };
       homeConfigurations.richard = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
         extraSpecialArgs = { inherit inputs; };
-
         modules = [
+          stylix.homeModules.stylix
+
           ./home.nix
         ];
       };

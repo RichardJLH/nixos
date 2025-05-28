@@ -32,8 +32,6 @@
       timeout = false;
     };
 
-    colorschemes.dracula-nvim.enable = true;
-
 
     # remap
     globals.mapleader = " ";

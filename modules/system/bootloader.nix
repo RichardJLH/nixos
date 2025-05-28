@@ -1,12 +1,3 @@
-{ pkgs, lib, ... }:
-let
-  dracula-grub-theme = pkgs.fetchFromGitHub {
-    owner = "dracula";
-    repo = "grub";
-    rev = "0e721d99dbf0d5d6c4fd489b88248365b7a60d12";
-    sha256 = "sha256-SBAXGJbNYdr89FSlqzgkiW/c23yTHYvNxxU8F1hMfXI=";
-  };
-in
 {
   # Bootloader.
   boot = {
@@ -26,7 +17,6 @@ in
         devices = [ "nodev" ];
         efiSupport = true;
         useOSProber = true;
-		theme = "${dracula-grub-theme}/dracula";
       };
     };
   };
