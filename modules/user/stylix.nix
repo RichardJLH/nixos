@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   wallpaperRepo = pkgs.fetchFromGitHub {
     owner = "dracula";
@@ -13,8 +13,9 @@ in
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    image = "${wallpaper}";
 
-	image = "${wallpaper}";
+    targets.firefox.profileNames = [ "default" ];
 
     fonts = {
       serif = {

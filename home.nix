@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -47,70 +47,6 @@
       steam-run
     ];
   };
-
-  fonts.fontconfig.enable = true;
-
-  imports = [
-    ./programs/neovim/mod.nix
-    ./programs/hyprland.nix
-    ./programs/tmux.nix
-    ./programs/starship.nix
-    ./programs/nushell/mod.nix
-    ./programs/kitty.nix
-    ./programs/gammastep.nix
-    ./programs/bat.nix
-    ./programs/git.nix
-    ./programs/gpg.nix
-    ./programs/ssh.nix
-    ./programs/firefox.nix
-    ./programs/btop.nix
-    ./programs/lsd.nix
-    ./programs/mpv.nix
-    ./programs/clipman.nix
-    ./programs/lazygit.nix
-    ./programs/direnv.nix
-	./programs/fzf.nix
-	./programs/nh.nix
-	./programs/nixvim.nix
-	./programs/keepassxc.nix
-	# ./programs/qutebrowser.nix
-    # ./programs/ags/mod.nix
-  ];
-
-
-  stylix = {
-    enable = true;
-	base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
-    image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/dracula/wallpaper/f2b8cc4223bcc2dfd5f165ab80f701bbb84e3303/first-collection/nixos.png";
-	  hash = "sha256-hJBs+1MYSAqxb9+ENP0AsHdUrvjTzjobGv57dx5pPGE=";
-    };
-
-	targets.firefox.profileNames = [ "default" ];
-
-    fonts = {
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono NF";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

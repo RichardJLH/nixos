@@ -83,6 +83,8 @@
           stylix.homeModules.stylix
 
           ./home.nix
+          ./modules/user/stylix.nix
+          ./modules/user/programs.nix
         ];
       };
       formatter.${system} = pkgs.nixpkgs-fmt;
