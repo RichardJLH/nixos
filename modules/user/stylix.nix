@@ -16,6 +16,7 @@ in
     image = "${wallpaper}";
 
     targets.firefox.profileNames = [ "default" ];
+    targets.qutebrowser.enable = false;
 
     fonts = {
       serif = {

@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./programs/hyprland.nix
@@ -14,7 +15,8 @@
 	./programs/nh.nix
 	./programs/nixvim.nix
 	./programs/keepassxc.nix
-	# ./programs/qutebrowser.nix
+	./programs/tofi.nix
+	./programs/qutebrowser.nix
     # ./programs/ags/mod.nix
   ];
 
@@ -26,11 +28,11 @@
     mpv.enable = true;
     starship.enable = true;
     foot.enable = true;
-    tofi.enable = true;
-    tofi.settings = {
-      width = "50%";
-      height = "50%";
-    };
+	waybar.enable = true;
   };
+  home.packages = with pkgs; [
+    hyprland-protocols
+  ];
+
   services.clipman.enable = true;
 }

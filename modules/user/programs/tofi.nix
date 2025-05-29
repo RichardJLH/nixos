@@ -1,5 +1,5 @@
 {
-  tofi = {
+  programs.tofi = {
     enable = true;
     settings = {
       width = "50%";

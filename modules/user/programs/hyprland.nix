@@ -12,6 +12,7 @@
       "$mainMod" = "SUPER";
 
       exec-once = "eww open bar & firefox";
+      # exec-once = "waybar & firefox";
 
       input = {
         kb_layout = "us";
@@ -67,8 +68,8 @@
       };
 
 	  windowrulev2 = [
-		  "suppressevent maximize, class:.*"
-		  "workspace 9, class:org.keepassxc.KeePassXC"
+        "suppressevent maximize, class:.*"
+        "workspace 9, class:org.keepassxc.KeePassXC"
 	  ];
 
       bindm = [
@@ -80,6 +81,7 @@
 		"$mainMod, P, exec, tofi-drun | xargs hyprctl dispatch exec --"
         "$mainMod CONTROL, Return, exec, foot"
         "$mainMod CONTROL, F, exec, firefox"
+        "$mainMod CONTROL, B, exec, qutebrowser"
         "$mainMod CONTROL, M, exec, dolphin"
 
         # navigation
