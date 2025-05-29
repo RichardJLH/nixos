@@ -3,7 +3,6 @@
   imports = [
     ./programs/hyprland.nix
     ./programs/tmux.nix
-    ./programs/nushell/mod.nix
     ./programs/gammastep.nix
     ./programs/bat.nix
     ./programs/git.nix

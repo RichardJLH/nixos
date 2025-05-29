@@ -4,6 +4,6 @@
     isNormalUser = true;
     description = "Richard H";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
   };
 }

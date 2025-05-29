@@ -1,5 +1,4 @@
-{ inputs, ... }:
-
+{ pkgs, inputs, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -15,9 +14,10 @@
         extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           ublock-origin
           darkreader
-          keepassxc-browser
+		  passff
         ];
       };
     };
+	nativeMessagingHosts = [ pkgs.passff-host ];
   };
 }

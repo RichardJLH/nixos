@@ -2,11 +2,14 @@
   programs.git = {
     enable = true;
 
-	userName = "RichardJLH";
-	userEmail = "richard.jl.hildebrandt@gmail.com";
+    userName = "Richard Hildebrandt";
+    userEmail = "richard.jl.hildebrandt@gmail.com";
+
+    signing = {
+      signByDefault = true;
+    };
 
     extraConfig = {
-      commit.gpgsign = true;
       safe.directory = "*";
     };
     delta.enable = true;

@@ -85,6 +85,8 @@
           ./home.nix
           ./modules/user/stylix.nix
           ./modules/user/programs.nix
+          ./modules/user/pass.nix
+          ./modules/user/shell.nix
         ];
       };
       formatter.${system} = pkgs.nixpkgs-fmt;

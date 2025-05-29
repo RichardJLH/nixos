@@ -4,6 +4,7 @@
 
   programs.nixvim = {
     enable = true;
+	defaultEditor = true;
 
     # set
     opts = {
@@ -234,6 +235,7 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
+
 
   programs.nushell.shellAliases.e = "nvim";
 }
