@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./eww/mod.nix
@@ -12,7 +10,6 @@
       "$mainMod" = "SUPER";
 
       exec-once = "eww open bar & firefox";
-      # exec-once = "waybar & firefox";
 
       input = {
         kb_layout = "us";
@@ -135,8 +132,4 @@
       ];
     };
   };
-
-  home.packages = with pkgs; [
-    hyprcursor
-  ];
 }

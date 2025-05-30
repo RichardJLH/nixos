@@ -27,7 +27,7 @@
     mpv.enable = true;
     starship.enable = true;
     foot.enable = true;
-	waybar.enable = true;
+	yazi.enable = true;
   };
   home.packages = with pkgs; [
     hyprland-protocols

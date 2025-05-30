@@ -5,7 +5,6 @@
   home = {
     username = "richard";
     homeDirectory = "/home/richard";
-    stateVersion = "23.11";
 
 	keyboard = {
       layout = "us";
@@ -21,8 +20,6 @@
       plocate
       sbctl
 	  chromium
-	  clang-tools
-	  gparted
 	  unzip
 	  cacert
       jetbrains.idea-community-bin
@@ -35,18 +32,19 @@
            name = "font-awesome-src";
          };
          installPhase = ''
-         mkdir -p $out/share/fonts/opentype
-         cp *.otf $out/share/fonts/opentype/
+           mkdir -p $out/share/fonts/opentype
+           cp *.otf $out/share/fonts/opentype/
          '';
        })
 
 
-      # unfree packages
+      # unfree
       spotify
       whatsapp-for-linux
       steam-run
     ];
   };
-  # Let Home Manager install and manage itself.
+
   programs.home-manager.enable = true;
+  home.stateVersion = "23.11";
 }

@@ -10,6 +10,7 @@
         settings = {
           "browser.startup.homepage" = "https://google.com";
           "browser.search.defaultenginename" = "Google";
+		  "services.sync.prefs.sync.extensions.activeThemeID" = false;
         };
         extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           ublock-origin
