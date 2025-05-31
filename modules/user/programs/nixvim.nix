@@ -85,8 +85,8 @@
       { mode = "n"; key = "J"; action = "Nzzzv"; }
 
       # Diagnostics
-      { mode = ""; key = "[a"; action = "<cmd>lua vim.diagnostic.goto_prev()<cr>"; }
-      { mode = ""; key = "]a"; action = "<cmd>lua vim.diagnostic.goto_next()<cr>"; }
+      { mode = ""; key = "[a"; action.__raw = "vim.diagnostic.goto_prev"; }
+      { mode = ""; key = "]a"; action.__raw = "vim.diagnostic.goto_next"; }
 
       # Text yank/delete
       { mode = ""; key = "<leader>ty"; action = "\"+y\""; }
@@ -128,6 +128,7 @@
     ];
 
     plugins = {
+      lsp.enable = true;
       oil.enable = true;
       lualine.enable = true;
 
@@ -148,9 +149,38 @@
 
 	extraConfigLua = ''require("fzf-lua").register_ui_select()'';
 
-    plugins.lsp = {
-      enable = true;
-	  inlayHints = true;
+    lsp = {
+	  keymaps = [
+        {
+          key = "<leader>la";
+          lspBufAction = "code_action";
+        }
+        {
+          key = "<leader>lc";
+          lspBufAction = "references";
+        }
+        {
+          key = "<leader>ld";
+          lspBufAction = "definition";
+        }
+        {
+          key = "<leader>li";
+          lspBufAction = "implementation";
+        }
+        {
+          key = "<leader>lh";
+          lspBufAction = "hover";
+        }
+        {
+          key = "<leader>lr";
+          lspBufAction = "rename";
+        }
+        {
+          key = "<leader>lt";
+          lspBufAction = "type_definition";
+        }
+	  ];
+	  inlayHints.enable = true;
       servers = {
         nil_ls.enable = true;
         jdtls.enable = true;

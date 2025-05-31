@@ -5,9 +5,16 @@
 
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    historySubstringSearch.enable = true;
-    historySubstringSearch.searchDownKey = [ "$terminfo[kcud1]" ];
-    historySubstringSearch.searchUpKey = [ "$terminfo[kcuu1]" ];
+    historySubstringSearch = {
+      enable = true;
+      searchDownKey = [ "$terminfo[kcud1]" ];
+      searchUpKey = [ "$terminfo[kcuu1]" ];
+    };
+
+    prezto = {
+      enable = true;
+      tmux.autoStartLocal = true;
+    };
   };
 
   home.shellAliases = {
