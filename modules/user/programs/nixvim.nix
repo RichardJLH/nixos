@@ -237,5 +237,5 @@
   };
 
 
-  programs.nushell.shellAliases.e = "nvim";
+  home.shellAliases.e = "nvim";
 }

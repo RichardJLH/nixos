@@ -1,5 +1,7 @@
 {
   programs.lsd.enable = true;
-  programs.nushell.shellAliases.l = "lsd -l";
-  programs.nushell.shellAliases.s = "lsd -la";
+  home.shellAliases = {
+    l = "lsd -l";
+    s = "lsd -la";
+  };
 }

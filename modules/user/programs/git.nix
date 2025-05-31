@@ -24,5 +24,5 @@
       ac = "!git add -A && git commit -m";
     };
   };
-  programs.nushell.shellAliases.g = "git";
+  home.shellAliases.g = "git";
 }

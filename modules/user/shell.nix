@@ -1,14 +1,17 @@
 {
-  programs.nushell = {
+  programs.zsh = {
     enable = true;
-    envFile.source = ./nushell/env.nu;
-    shellAliases = {
-      a = "doas";
-      c = "clear";
-    };
-	settings = {
-	  show_banner = false;
-	};
+    autocd = true;
+
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
+    historySubstringSearch.searchDownKey = [ "$terminfo[kcud1]" ];
+    historySubstringSearch.searchUpKey = [ "$terminfo[kcuu1]" ];
   };
-  programs.zsh.enable = true;
+
+  home.shellAliases = {
+    a = "doas";
+    c = "clear";
+  };
 }

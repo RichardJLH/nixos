@@ -3,4 +3,5 @@
     enable = true;
     configDir = ./configuration;
   };
+  programs.nushell.enable = true;
 }
