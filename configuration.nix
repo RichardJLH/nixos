@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+{pkgs, ...}: {
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.config.allowUnfree = true;
@@ -15,8 +13,8 @@
   programs.git.enable = true;
   programs.steam.enable = true;
 
-  services.printing.enable = true;  # cups
-  services.fprintd.enable = true;  # fingerprint
+  services.printing.enable = true; # cups
+  services.fprintd.enable = true; # fingerprint
   services.locate = {
     enable = true;
     package = pkgs.plocate;
@@ -26,23 +24,24 @@
     appConfig.gammastep = {
       isAllowed = true;
       isSystem = true;
-      users = [ "1000" ];
+      users = ["1000"];
     };
   };
-
 
   security = {
     sudo.enable = false;
     doas = {
       enable = true;
-      extraRules = [{
-        users = [ "richard" ];
-        keepEnv = true;
-        persist = true;  
-      }];
+      extraRules = [
+        {
+          users = ["richard"];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
     };
   };
-  environment.systemPackages = [ pkgs.doas-sudo-shim ];
+  environment.systemPackages = [pkgs.doas-sudo-shim];
 
   system.stateVersion = "23.11";
 }

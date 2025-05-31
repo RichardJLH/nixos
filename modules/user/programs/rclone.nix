@@ -1,16 +1,17 @@
-{ config, pkgs, inputs, ... }:
-
-let
-  driveName = "Google Drive";
-in
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  driveName = "Google Drive";
+in {
   programs.rclone = {
     enable = true;
     remotes = {
       gdrive = {
         config = {
           type = "drive";
-
         };
       };
     };
@@ -19,7 +20,7 @@ in
   systemd.user.services.rclone-gdrive = {
     Unit = {
       Description = "Mount Google Drive with rclone";
-      After = [ "network-online.target" ];
+      After = ["network-online.target"];
     };
     Service = {
       ExecStart = ''
@@ -30,8 +31,8 @@ in
       ExecStop = "${pkgs.fuse3}/bin/fusermount3 -u ${config.home.homeDirectory}/${driveName}";
       Restart = "on-failure";
     };
-    Install.WantedBy = [ "default.target" ];
+    Install.WantedBy = ["default.target"];
   };
 
-  home.file."${driveName}".directory = { };
+  home.file."${driveName}".directory = {};
 }

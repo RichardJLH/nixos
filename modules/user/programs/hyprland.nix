@@ -64,10 +64,10 @@
         workspace_swipe_invert = "false";
       };
 
-	  windowrulev2 = [
+      windowrulev2 = [
         "suppressevent maximize, class:.*"
         "workspace 9, class:org.keepassxc.KeePassXC"
-	  ];
+      ];
 
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -75,7 +75,7 @@
       ];
       bind = [
         # apps
-		"$mainMod, P, exec, tofi-drun | xargs hyprctl dispatch exec --"
+        "$mainMod, P, exec, tofi-drun | xargs hyprctl dispatch exec --"
         "$mainMod CONTROL, Return, exec, foot"
         "$mainMod CONTROL, F, exec, firefox"
         "$mainMod CONTROL, B, exec, qutebrowser"

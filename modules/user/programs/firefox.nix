@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     profiles = {
@@ -10,15 +13,15 @@
         settings = {
           "browser.startup.homepage" = "https://google.com";
           "browser.search.defaultenginename" = "Google";
-		  "services.sync.prefs.sync.extensions.activeThemeID" = false;
+          "services.sync.prefs.sync.extensions.activeThemeID" = false;
         };
         extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           ublock-origin
           darkreader
-		  passff
+          passff
         ];
       };
     };
-	nativeMessagingHosts = [ pkgs.passff-host ];
+    nativeMessagingHosts = [pkgs.passff-host];
   };
 }

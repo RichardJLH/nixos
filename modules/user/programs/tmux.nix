@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
 
@@ -9,13 +8,13 @@
     prefix = "C-Space";
     escapeTime = 0;
     terminal = "screen-256color";
-	extraConfig = "set-option -g repeat-time 0";
-	sensibleOnTop = true;
+    extraConfig = "set-option -g repeat-time 0";
+    sensibleOnTop = true;
 
     plugins = with pkgs.tmuxPlugins; [
       yank
-	  pass
-	  tmux-fzf
+      pass
+      tmux-fzf
     ];
   };
 }

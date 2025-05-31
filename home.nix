@@ -1,15 +1,14 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "richard";
     homeDirectory = "/home/richard";
 
-	keyboard = {
+    keyboard = {
       layout = "us";
       variant = "colemak";
-	};
+    };
 
     packages = with pkgs; [
       neofetch
@@ -19,24 +18,23 @@
       socat
       plocate
       sbctl
-	  chromium
-	  unzip
-	  cacert
+      chromium
+      unzip
+      cacert
       jetbrains.idea-community-bin
       nerd-fonts.jetbrains-mono
 
       (pkgs.stdenvNoCC.mkDerivation {
-         name = "font-awesome-pro";
-         src = builtins.path {
-           path = ./assets/font-awesome;
-           name = "font-awesome-src";
-         };
-         installPhase = ''
-           mkdir -p $out/share/fonts/opentype
-           cp *.otf $out/share/fonts/opentype/
-         '';
-       })
-
+        name = "font-awesome-pro";
+        src = builtins.path {
+          path = ./assets/font-awesome;
+          name = "font-awesome-src";
+        };
+        installPhase = ''
+          mkdir -p $out/share/fonts/opentype
+          cp *.otf $out/share/fonts/opentype/
+        '';
+      })
 
       # unfree
       spotify
