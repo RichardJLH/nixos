@@ -108,6 +108,7 @@
       { mode = "n"; key = "<leader>fx"; action = "<cmd>x<cr>"; options.silent = true; }
       { mode = "n"; key = "<leader>fz"; action = "<cmd>xa<cr>"; options.silent = true; }
       { mode = "n"; key = "<leader>fq"; action = "<cmd>q<cr>"; options.silent = true; }
+      { mode = "n"; key = "<leader>ff"; action.__raw = "function() require('conform').format() end"; }
 
       { mode = "n"; key = "<leader>gv"; action = "<cmd>vsplit<cr>gd"; options.silent = true; }
 
@@ -145,7 +146,38 @@
           "<leader>ps" = "live_grep";
         };
       };
+      conform-nvim = {
+        enable = true;
+        autoLoad = true;
+        settings = {
+          format_on_save =
+          ''
+            function(bufnr)
+              if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                return
+              end
+
+              -- if slow_format_filetypes[vim.bo[bufnr].filetype] then
+              --   return
+              -- end
+
+              local function on_format(err)
+                if err and err:match("timeout$") then
+                  slow_format_filetypes[vim.bo[bufnr].filetype] = true
+                end
+              end
+
+              return { timeout_ms = 200, lsp_fallback = true }, on_format
+             end
+          '';
+
+          formatters_by_ft = {
+            nix = [ "alejandra" ];
+          };
+        };
+      };
     };
+
 
 	extraConfigLua = ''require("fzf-lua").register_ui_select()'';
 
@@ -259,7 +291,7 @@
     # };
   };
 
-  home.packages = [ pkgs.gcc ];
+  home.packages = with pkgs; [ gcc alejandra ];
 
   home.sessionVariables = {
     EDITOR = "nvim";

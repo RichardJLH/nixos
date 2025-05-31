@@ -7,8 +7,8 @@
     syntaxHighlighting.enable = true;
     historySubstringSearch = {
       enable = true;
-      searchDownKey = [ "$terminfo[kcud1]" ];
-      searchUpKey = [ "$terminfo[kcuu1]" ];
+      searchDownKey = ["$terminfo[kcud1]"];
+      searchUpKey = ["$terminfo[kcuu1]"];
     };
 
     prezto = {
