@@ -327,7 +327,7 @@
           highlight.enable = true;
           indent.enable = true;
         };
-        folding = true;
+        # folding = true;
       };
 
       fzf-lua = {

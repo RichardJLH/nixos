@@ -19,6 +19,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -28,6 +32,7 @@
     firefox-addons,
     nixvim,
     stylix,
+    sops-nix,
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -69,6 +74,7 @@
         ./modules/user/shell.nix
 
         stylix.homeModules.stylix
+        sops-nix.homeManagerModules.sops
       ];
     };
   };
