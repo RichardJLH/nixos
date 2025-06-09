@@ -1,6 +1,6 @@
 {
   pkgs,
-  inputs,
+  firefox-addons,
   ...
 }: {
   programs.firefox = {
@@ -15,7 +15,7 @@
           "browser.search.defaultenginename" = "Google";
           "services.sync.prefs.sync.extensions.activeThemeID" = false;
         };
-        extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+        extensions.packages = with firefox-addons.packages."x86_64-linux"; [
           ublock-origin
           darkreader
           passff

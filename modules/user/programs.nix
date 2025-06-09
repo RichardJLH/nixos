@@ -26,7 +26,19 @@
     starship.enable = true;
     foot.enable = true;
     yazi.enable = true;
+    zathura.enable = true;
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "application/pdf" = ["org.gnome.Zathura.desktop"];
+    };
+    defaultApplications = {
+      "application/pdf" = ["org.gnome.Zathura.desktop"];
+    };
+  };
+
   home.packages = with pkgs; [
     hyprland-protocols
   ];

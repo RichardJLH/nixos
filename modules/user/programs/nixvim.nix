@@ -1,10 +1,10 @@
 {
-  inputs,
   config,
   pkgs,
+  nixvim,
   ...
 }: {
-  imports = [inputs.nixvim.homeManagerModules.nixvim];
+  imports = [nixvim.homeManagerModules.nixvim];
 
   programs.nixvim = {
     enable = true;
@@ -322,7 +322,12 @@
 
       treesitter = {
         enable = true;
-        settings.auto_install = true;
+        settings = {
+          auto_install = true;
+          highlight.enable = true;
+          indent.enable = true;
+        };
+        folding = true;
       };
 
       fzf-lua = {

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  fontAwesome,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
   home = {
@@ -26,10 +30,7 @@
 
       (pkgs.stdenvNoCC.mkDerivation {
         name = "font-awesome-pro";
-        src = builtins.path {
-          path = ./assets/font-awesome;
-          name = "font-awesome-src";
-        };
+        src = fontAwesome;
         installPhase = ''
           mkdir -p $out/share/fonts/opentype
           cp *.otf $out/share/fonts/opentype/
