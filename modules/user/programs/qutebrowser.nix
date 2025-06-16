@@ -1,11 +1,4 @@
-{pkgs, ...}: let
-  quteKeepassxc = pkgs.fetchFromGitHub {
-    owner = "ususdei";
-    repo = "qute-keepassxc";
-    rev = "b2338f206b47d74904d85d92a856917c32a9d5eb";
-    sha256 = "sha256-cuTcwekXALoz/dWn6SVszrcFQSN0/y+8iWecnW/6fNU=";
-  };
-in {
+{
   programs.qutebrowser = {
     enable = true;
     enableDefaultBindings = false;
@@ -29,6 +22,10 @@ in {
         "<=>" = "zoom-in";
         "<->" = "zoom-out";
         "f" = "hint";
+        "m" = "set-mark";
+        "/" = "cmd-set-text -s :search";
+        "[" = "search-next";
+        "]" = "search-prev";
 
         "d" = "tab-close";
         "u" = "undo";
@@ -61,8 +58,7 @@ in {
         ";" = "cmd-set-text :";
 
         ",m" = "hint links spawn mpv {hint-url}";
-
-        # "sk" = "spawn --userscript qute-keepassxc";
+        ",M" = "spawn mpv {url}";
       };
       command = {
         "<Escape>" = "mode-leave";
@@ -111,11 +107,5 @@ in {
     };
   };
 
-  xdg.configFile."qutebrowser/userscripts/qute-keepassxc".source = "${quteKeepassxc}/qute-keepassxc.py";
-
-  programs.keepassxc = {
-    settings = {
-      Browser.Enabled = true;
-    };
-  };
+  programs.mpv.enable = true;
 }

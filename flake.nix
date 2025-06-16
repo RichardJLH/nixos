@@ -72,6 +72,7 @@
         ./modules/user/programs.nix
         ./modules/user/pass.nix
         ./modules/user/shell.nix
+        ./modules/user/sops.nix
 
         stylix.homeModules.stylix
         sops-nix.homeManagerModules.sops

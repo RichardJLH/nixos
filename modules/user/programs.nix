@@ -15,6 +15,7 @@
     ./programs/keepassxc.nix
     ./programs/tofi.nix
     ./programs/qutebrowser.nix
+    ./programs/mpv.nix
     # ./programs/ags/mod.nix
   ];
 

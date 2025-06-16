@@ -1,0 +1,7 @@
+keys:
+  - &richard age18zgnuzmatd7jf9ef5yn0mp0dkp0xn3lzd00ddqeg9hpkxd97jcnshay754
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups: 
+      - age:
+        - *richard

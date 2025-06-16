@@ -1,6 +1,6 @@
 {
   imports = [
-    ./eww/mod.nix
+    ./waybar.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -9,7 +9,7 @@
       monitor = ",highres,auto,auto";
       "$mainMod" = "SUPER";
 
-      exec-once = "eww open bar & firefox";
+      exec-once = "waybar & firefox";
 
       input = {
         kb_layout = "us";
