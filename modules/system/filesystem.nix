@@ -35,8 +35,7 @@ in {
       what = "//10.1.0.11/Transfer";
       where = "/home/richard/leannas";
       type = "cifs";
-      options = "credentials=/home/richard/nixos/secrets/leannas.credentials,rw,uid=1000,gid=1000";
-      wantedBy = ["multi-user.target"];
+      options = "credentials=/home/richard/nixos/secrets/leannas.credentials,x-systemd.automount,rw,uid=1000,gid=1000";
     }
   ];
   environment.systemPackages = [pkgs.cifs-utils];
