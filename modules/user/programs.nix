@@ -16,7 +16,6 @@
     ./programs/tofi.nix
     ./programs/qutebrowser.nix
     ./programs/mpv.nix
-    # ./programs/ags/mod.nix
   ];
 
   programs = {
@@ -25,7 +24,10 @@
     lazygit.enable = true;
     mpv.enable = true;
     starship.enable = true;
-    foot.enable = true;
+    foot = {
+      enable = true;
+      settings.main.shell = "tmux";
+    };
     yazi.enable = true;
     zathura.enable = true;
   };
