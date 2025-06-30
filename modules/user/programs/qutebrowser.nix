@@ -103,7 +103,7 @@
     settings = {
       url.start_pages = "https://www.google.com";
       auto_save.session = true;
-      content.blocking.method = "adblock";
+      content.autoplay = false;
     };
   };
 
