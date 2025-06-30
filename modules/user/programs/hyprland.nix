@@ -102,6 +102,9 @@
         "$mainMod, T, workspace, e+1"
         "$mainMod, R, togglespecialworkspace, magic"
 
+        # view
+        "$mainMod, F, fullscreen,"
+
         # modification
         "$mainMod SHIFT, C, killactive,"
         "$mainMod SHIFT, F, togglefloating,"
