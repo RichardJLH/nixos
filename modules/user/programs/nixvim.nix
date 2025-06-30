@@ -319,6 +319,23 @@
       lsp.enable = true;
       oil.enable = true;
       lualine.enable = true;
+      cmp = {
+        enable = true;
+        settings = {
+          mapping = {
+            "<C-n>" = "cmp.mapping.select_next_item()";
+            "<C-e>" = "cmp.mapping.select_prev_item()";
+            "<C-y>" = "cmp.mapping.confirm({ select = true })";
+            "<C-Space>" = "cmp.mapping.complete()";
+          };
+
+          sources = [
+            {name = "nvim_lsp";}
+            {name = "path";}
+            {name = "buffer";}
+          ];
+        };
+      };
 
       treesitter = {
         enable = true;
@@ -406,6 +423,7 @@
       servers = {
         nil_ls.enable = true;
         jdtls.enable = true;
+        clangd.enable = true;
         # rust_analyzer.enable = true;
       };
     };
