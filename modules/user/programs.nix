@@ -47,4 +47,5 @@
   ];
 
   services.clipman.enable = true;
+  services.kdeconnect.enable = true;
 }
